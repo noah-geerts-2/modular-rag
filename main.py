@@ -1,5 +1,5 @@
 from typing import List
-from loader_chunkers.MultiModalLoaderChunker import MultiModalLoaderChunker
+from loader_chunkers.multimodal_loader_chunker import MultiModalLoaderChunker
 from langchain_core.documents import Document
 from dotenv import load_dotenv
 

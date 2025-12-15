@@ -2,7 +2,7 @@ import json
 import pickle
 from typing import List, Set, TypedDict
 from langchain_core.documents import Document
-from .LoaderChunker import LoaderChunker
+from .loader_chunker import LoaderChunker
 from unstructured.documents.elements import Element
 from unstructured.partition.auto import partition
 from unstructured.chunking.title import chunk_by_title
