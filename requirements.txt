@@ -4,3 +4,4 @@ unstructured-inference
 pillow-heif
 pdf2image
 python-dotenv
+pinecone

@@ -4,5 +4,5 @@ from rag_types.chunk import Chunk
 
 class Embedder(ABC):
   @abstractmethod
-  def embed_chunks(self, chunks: List[Chunk]):
+  def embed_chunks(self, chunks: List[Chunk]) -> List[List[float]]:
     pass
