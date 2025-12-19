@@ -2,6 +2,7 @@ from loader_chunkers.multimodal_loader_chunker import MultiModalLoaderChunker
 from chunk_storages.sqlite_chunk_storage import SQLiteChunkStorage
 from embedders.openai_embedder import OpenAIEmbedder
 from vector_stores.pinecone_vector_store import PineconeVectorStore
+from query_rewriters.multi_query_rewriter import MultiQueryRewriter
 
 from ingestion_pipeline import IngestionPipeline
 
@@ -18,15 +19,18 @@ dimension = int(os.environ['DIMENSION'])
 pinecone_api_key = os.environ['PINECONE_API_KEY']
 index_name = os.environ['INDEX_NAME']
 
-print("INITIALIZING PIPELINE\n")
+# print("INITIALIZING PIPELINE\n")
 
-ingestionPipeline = IngestionPipeline(
-  MultiModalLoaderChunker(openai_api_key),
-  SQLiteChunkStorage(db_name, table_name),
-  OpenAIEmbedder(openai_api_key, dimension),
-  PineconeVectorStore(pinecone_api_key, index_name, dimension)
-)
+# ingestionPipeline = IngestionPipeline(
+#   MultiModalLoaderChunker(openai_api_key),
+#   SQLiteChunkStorage(db_name, table_name),
+#   OpenAIEmbedder(openai_api_key, dimension),
+#   PineconeVectorStore(pinecone_api_key, index_name, dimension)
+# )
 
-print("INGESTING:\n\n")
+# print("INGESTING:\n\n")
 
-ingestionPipeline.ingest("./documents")
+# ingestionPipeline.ingest("./documents")
+
+rewriter = MultiQueryRewriter(openai_api_key, n=3)
+print(rewriter.rewrite("What's the deadliest heart condition?"))

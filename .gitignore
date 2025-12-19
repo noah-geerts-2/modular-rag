@@ -2,4 +2,4 @@ documents
 *venv
 *.env
 **/__pycache__
-*.db
+**/*.db
