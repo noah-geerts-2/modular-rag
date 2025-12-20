@@ -8,7 +8,7 @@ class MultiQueryRewriter(QueryRewriter):
     self.n = n
 
   # Writes multiple variations of a query with better wording
-  def rewrite(self, query: str) -> List[str]:
+  def rewrite_query(self, query: str) -> List[str]:
     # System prompt explaining what the LLM is
     system_prompt = """You are a retrieval assistant for a Retrieval-Augmented Generation (RAG) system.
     Your task is to generate multiple alternative search queries that preserve the original intent while improving retrieval coverage.

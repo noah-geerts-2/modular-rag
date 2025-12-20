@@ -33,4 +33,4 @@ index_name = os.environ['INDEX_NAME']
 # ingestionPipeline.ingest("./documents")
 
 rewriter = MultiQueryRewriter(openai_api_key, n=3)
-print(rewriter.rewrite("What's the deadliest heart condition?"))
+print(rewriter.rewrite_query("What's the deadliest heart condition?"))
