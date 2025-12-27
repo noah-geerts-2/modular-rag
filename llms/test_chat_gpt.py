@@ -5,8 +5,7 @@ from llms.chat_gpt import ChatGPT
 class TestChatGPT(unittest.TestCase):
     def setUp(self):
         self.mock_client = MagicMock()
-        self.chat_gpt = ChatGPT(self.mock_client)
-        self.chat_gpt.model = "gpt-4.1"  # Ensure model attribute exists
+        self.chat_gpt = ChatGPT(self.mock_client, model="gpt-4.1")
 
     def test_create_completion_with_prompt_only(self):
         # Arrange: Mock OpenAI response for prompt-only call

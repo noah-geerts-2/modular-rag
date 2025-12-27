@@ -5,14 +5,14 @@ from unstructured.documents.elements import Element
 from unstructured.partition.auto import partition
 from unstructured.chunking.title import chunk_by_title
 from pathlib import Path
-from openai import OpenAI
 from loader_chunkers.loader_chunker import LoaderChunker
 from rag_types.chunk import Chunk, Content
+from llms.llm import LLM
 
 class MultiModalLoaderChunker(LoaderChunker):
 
-  def __init__(self, openai_api_key):
-    self.client = OpenAI(api_key=openai_api_key)
+  def __init__(self, llm: LLM):
+    self.llm = llm
 
   # Generates an AI summary of a chunk containing images and tables that it can be searched by
   # (we will still return the original images, tables, and text: the summary is only used for
@@ -58,25 +58,7 @@ class MultiModalLoaderChunker(LoaderChunker):
 
     """
 
-    # Build message content starting with text
-    message_content = [{"type": "text", "text": prompt_text}]
-    
-    # Add images to the message
-    for image_base64 in images:
-        message_content.append({
-      "type": "image_url",
-      "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-        })
-    
-    # Send to AI and get response
-    response = self.client.chat.completions.create(
-        model="gpt-4.1",
-        messages=[
-            {"role": "user", "content": message_content}
-        ]
-    )
-    
-    return response.choices[0].message.content
+    return self.llm.create_completion(prompt_text, images_base64=images)
 
   @property
   def supported_extensions(self) -> Set[str]:

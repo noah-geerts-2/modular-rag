@@ -1,10 +1,11 @@
 from query_rewriters.query_rewriter import QueryRewriter
 from typing import List
 from openai import OpenAI
+from rag_types.llm import LLM
 
 class MultiQueryRewriter(QueryRewriter):
-  def __init__(self, openai_api_key, n: int = 3):
-    self.client = OpenAI(api_key=openai_api_key)
+  def __init__(self, llm: LLM, n: int = 3):
+    self.llm = llm
     self.n = n
 
   # Writes multiple variations of a query with better wording
@@ -39,17 +40,7 @@ class MultiQueryRewriter(QueryRewriter):
     """
 
     # Send to AI and get response
-    response = self.client.chat.completions.create(
-        model="gpt-4.1",
-        messages=[
-          {"role": "system", "content": system_prompt},
-          {"role": "user", "content": user_prompt}
-        ]
-    )
-
-    # Split and return
-    if response.choices[0].message.content is None:
-      raise RuntimeError("response.choices[0].message.content received from the LLM was None")
-    queries = response.choices[0].message.content.split("|--|")
+    response = self.llm.create_chat_completion(user_prompt, system_message=system_prompt)
+    queries = response.split("|--|")
     queries = [query.strip() for query in queries]
     return queries

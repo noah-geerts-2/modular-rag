@@ -4,8 +4,8 @@ from pinecone import Pinecone, QueryResponse, ServerlessSpec, Vector
 from rag_types.vector import SemanticCandidate
 
 class PineconeVectorStore(VectorStore):
-  def __init__(self, pinecone_api_key: str, index_name: str, dimension: int, cloud: str = "aws", region: str = "us-east-1"):
-    self.pc = Pinecone(api_key=pinecone_api_key)
+  def __init__(self, pc: Pinecone, index_name: str, dimension: int, cloud: str = "aws", region: str = "us-east-1"):
+    self.pc = pc
     self.index_name = index_name
     self.dimension = dimension
 

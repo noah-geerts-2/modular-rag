@@ -1,7 +1,8 @@
 unstructured
-unstructured[all-docs]
+unstructured[pdf,docx,image]
 unstructured-inference
 pillow-heif
 pdf2image
 python-dotenv
 pinecone
+openai

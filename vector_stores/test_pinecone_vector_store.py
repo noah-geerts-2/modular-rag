@@ -25,15 +25,15 @@ class TestPineconeVectorStore(unittest.TestCase):
     
     # Create the vector store (which will create the index)
     cls.vector_store = PineconeVectorStore(
-      pinecone_api_key=cls.api_key,
+      pc=cls.pc,
       index_name=TEST_INDEX_NAME,
       dimension=TEST_DIMENSION
     )
 
-  # @classmethod
-  # def tearDownClass(cls):
-  #   # Delete the test index
-  #   cls.pc.delete_index(TEST_INDEX_NAME)
+  @classmethod
+  def tearDownClass(cls):
+    # Delete the test index
+    cls.pc.delete_index(TEST_INDEX_NAME)
 
   def test_cluster_query_returns_nearest_neighbors(self):
     # Arrange: Create 10 vectors - 7 in a cluster around [1,1,1,...], 3 far away

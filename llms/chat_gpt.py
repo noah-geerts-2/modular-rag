@@ -3,12 +3,14 @@ from llms.llm import LLM
 from openai import OpenAI
 
 class ChatGPT(LLM):
-  def __init__(self, openai: OpenAI):
+  def __init__(self, openai: OpenAI, model: str = "gpt-4.1"):
     self.client = openai
+    self.model = model
 
   def create_completion(self, prompt: str,
       system_message: str | None = None,
       images_base64: List[str] | None = None) -> str:
+    
     message_content: List[dict[str, Any]] = [{"type": "text", "text": prompt}]
     
     # Append images to message content if we have any
