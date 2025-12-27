@@ -4,4 +4,4 @@
 - Implement RetrievalPipeline class
 
 - Some refactoring.. maybe think about whether k values should be in constructors or functions, and whether the Chunk type should
-contain an ID for simplicity, and whether the SemanticCandidate should be renamed
+contain an ID for simplicity, and whether the Candidate should be renamed

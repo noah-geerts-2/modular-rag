@@ -1,10 +1,10 @@
 from loader_chunkers.multimodal_loader_chunker import MultiModalLoaderChunker
-from chunk_storages.sqlite_chunk_storage import SQLiteChunkStorage
+from chunk_storages.sqlite_chunk_storage import SQLiteChunkDB
 from embedders.openai_embedder import OpenAIEmbedder
-from vector_stores.pinecone_vector_store import PineconeVectorStore
+from vector_dbs.pinecone_vector_store import PineconeVectorDB
 from query_rewriters.multi_query_rewriter import MultiQueryRewriter
 
-from ingestion_pipeline import IngestionPipeline
+from src.pipelines.ingestion_pipeline import IngestionPipeline
 
 import dotenv
 import os
@@ -23,9 +23,9 @@ index_name = os.environ['INDEX_NAME']
 
 # ingestionPipeline = IngestionPipeline(
 #   MultiModalLoaderChunker(openai_api_key),
-#   SQLiteChunkStorage(db_name, table_name),
+#   SQLiteChunkDB(db_name, table_name),
 #   OpenAIEmbedder(openai_api_key, dimension),
-#   PineconeVectorStore(pinecone_api_key, index_name, dimension)
+#   PineconeVectorDB(pinecone_api_key, index_name, dimension)
 # )
 
 # print("INGESTING:\n\n")
