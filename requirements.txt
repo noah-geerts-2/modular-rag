@@ -6,4 +6,3 @@ pdf2image
 python-dotenv
 pinecone
 openai
--e .

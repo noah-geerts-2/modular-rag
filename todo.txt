@@ -1,7 +1,0 @@
-- Make unit/integration testing consistent for integrations like pinecone and openai API (thinking of pinecone_vector_store, pinecone_reranker, multimodal_loader_chunker, and multi_query_rewriter)
-- Add some testing to multi_query_rewriter
-- Create PromptConstructor type and a concrete implementation
-- Implement RetrievalPipeline class
-
-- Some refactoring.. maybe think about whether k values should be in constructors or functions, and whether the Chunk type should
-contain an ID for simplicity, and whether the Candidate should be renamed
