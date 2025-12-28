@@ -5,5 +5,5 @@ from common.rag_types import Chunk
 
 class Reranker(ABC):
     @abstractmethod
-    def rerank(self, chunks: List[Chunk], query: str) -> List[Chunk]:
+    def rerank(self, chunks: List[Chunk], ids: List[int], query: str) -> List[Chunk]:
         pass

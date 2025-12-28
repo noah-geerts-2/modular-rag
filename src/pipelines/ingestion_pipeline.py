@@ -1,3 +1,5 @@
+from typing import List
+from common.rag_types.chunk import Chunk
 from ingestion.chunk_dbs import ChunkDB
 from common.embedders import Embedder
 from ingestion.loader_chunkers import LoaderChunker
@@ -13,7 +15,7 @@ class IngestionPipeline:
 
   # Ingests all files at a given path
   def ingest(self, path: str):
-    chunks = self.loaderChunker.load_and_chunk(path)
+    chunks: List[Chunk] = self.loaderChunker.load_and_chunk(path)
     ids = self.ChunkDB.store_chunks(chunks)
     vectors = self.embedder.embed_strings(chunk['search_text'] for chunk in chunks)
     self.VectorDB.store_embeddings(ids, vectors)

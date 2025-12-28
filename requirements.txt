@@ -1,5 +1,5 @@
 unstructured
-unstructured[pdf,docx,image]
+unstructured[pdf,docx,image,md]
 unstructured-inference
 pillow-heif
 pdf2image
