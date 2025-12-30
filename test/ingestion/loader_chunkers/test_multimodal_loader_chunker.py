@@ -1,8 +1,8 @@
 from pathlib import Path
 import unittest
 from unittest.mock import MagicMock, Mock, patch
-from ingestion.loader_chunkers import MultiModalLoaderChunker
-from common.rag_types import Content
+from modular_rag.ingestion.loader_chunkers import MultiModalLoaderChunker
+from modular_rag.common.rag_types import Content
 
 class TestMultiModalLoaderChunker(unittest.TestCase):
 
@@ -43,7 +43,7 @@ class TestMultiModalLoaderChunker(unittest.TestCase):
       self.chunker.generate_ai_summary(invalid_content)
 
   # Tests for load()
-  @patch('ingestion.loader_chunkers.multimodal_loader_chunker.partition')
+  @patch('modular_rag.ingestion.loader_chunkers.multimodal_loader_chunker.partition')
   def test_load_pdf_sets_correct_kwargs(self, mock_partition):
     # Arrange
     mock_partition.return_value = []
@@ -59,7 +59,7 @@ class TestMultiModalLoaderChunker(unittest.TestCase):
     self.assertTrue(call_args.kwargs['extract_images_in_pdf'])
     self.assertTrue(call_args.kwargs['infer_table_structure'])
 
-  @patch('ingestion.loader_chunkers.multimodal_loader_chunker.partition')
+  @patch('modular_rag.ingestion.loader_chunkers.multimodal_loader_chunker.partition')
   def test_load_txt_sets_correct_kwargs(self, mock_partition):
     # Arrange
     mock_partition.return_value = []
@@ -72,7 +72,7 @@ class TestMultiModalLoaderChunker(unittest.TestCase):
     call_args = mock_partition.call_args
     self.assertEqual(call_args.kwargs['strategy'], 'fast')
 
-  @patch('ingestion.loader_chunkers.multimodal_loader_chunker.partition')
+  @patch('modular_rag.ingestion.loader_chunkers.multimodal_loader_chunker.partition')
   def test_load_returns_elements(self, mock_partition):
     # Arrange
     mock_elements = [Mock(), Mock()]

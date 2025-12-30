@@ -1,5 +1,5 @@
 from typing import List
-from common.rag_types import Chunk
+from modular_rag.common.rag_types import Chunk
 from .reranker import Reranker
 from pinecone import Pinecone
 

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List
-from common.rag_types import Candidate
+from modular_rag.common.rag_types import Candidate
 
 class VectorDB(ABC):
   @abstractmethod

@@ -1,6 +1,6 @@
 from .query_rewriter import QueryRewriter
 from typing import List
-from common.llms import LLM
+from modular_rag.common.llms import LLM
 
 class MultiQueryRewriter(QueryRewriter):
   def __init__(self, llm: LLM, n: int = 3):

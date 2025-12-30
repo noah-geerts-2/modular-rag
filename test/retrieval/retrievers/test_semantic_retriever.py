@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock, patch, call
 
-from retrieval.retrievers import SemanticRetriever
+from modular_rag.retrieval.retrievers import SemanticRetriever
 
 
 class TestSemanticRetriever(unittest.TestCase):
@@ -15,7 +15,7 @@ class TestSemanticRetriever(unittest.TestCase):
     # Act (call with ONE query)
     retriever = SemanticRetriever(vector_db, embedder, semanticK=3, finalK=2)
 
-    with patch('retrieval.retrievers.semantic_retriever.rrf') as mock_rrf:
+    with patch('modular_rag.retrieval.retrievers.semantic_retriever.rrf') as mock_rrf:
       self.assertRaises(RuntimeError, lambda: retriever.retrieve_candidates([]))
 
     # Assert: none of the subfunctions should have been called
@@ -37,7 +37,7 @@ class TestSemanticRetriever(unittest.TestCase):
     # Act (call with ONE query)
     retriever = SemanticRetriever(vector_db, embedder, semanticK=3, finalK=2)
 
-    with patch('retrieval.retrievers.semantic_retriever.rrf') as mock_rrf:
+    with patch('modular_rag.retrieval.retrievers.semantic_retriever.rrf') as mock_rrf:
       result = retriever.retrieve_candidates(["q1"])
 
     # Assert
@@ -61,7 +61,7 @@ class TestSemanticRetriever(unittest.TestCase):
     retriever = SemanticRetriever(vector_db, embedder, semanticK=2, finalK=1)
     rrf_result = [{"id": 1, "score": 1.1}]
 
-    with patch('retrieval.retrievers.semantic_retriever.rrf', return_value=rrf_result) as mock_rrf:
+    with patch('modular_rag.retrieval.retrievers.semantic_retriever.rrf', return_value=rrf_result) as mock_rrf:
       result = retriever.retrieve_candidates(["q1", "q2"]) # 2 queries
 
     # Assert: Ensure we get 2 queries embedding, and the 2 embeddings passed into semantic search
@@ -84,7 +84,7 @@ class TestSemanticRetriever(unittest.TestCase):
     retriever = SemanticRetriever(vector_db, embedder, semanticK=1, finalK=2)
     rrf_result = [{"id": 1, "score": 1.1}]
 
-    with patch('retrieval.retrievers.semantic_retriever.rrf', return_value=rrf_result) as mock_rrf:
+    with patch('modular_rag.retrieval.retrievers.semantic_retriever.rrf', return_value=rrf_result) as mock_rrf:
       result = retriever.retrieve_candidates(["q1", "q2", "q3"])
 
     # Assert: rrf should be called with all results (including empty), and finalK=2

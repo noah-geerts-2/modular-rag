@@ -1,10 +1,10 @@
 from openai import OpenAI
 from pinecone import Pinecone
-from common.embedders.openai_embedder import OpenAIEmbedder
-from ingestion.chunk_dbs import SQLiteChunkDB
-from ingestion.vector_dbs.pinecone_vector_db import PineconeVectorDB
-from pipelines import RetrievalPipeline
-from retrieval.retrievers import SemanticRetriever
+from modular_rag.common.embedders.openai_embedder import OpenAIEmbedder
+from modular_rag.ingestion.chunk_dbs import SQLiteChunkDB
+from modular_rag.ingestion.vector_dbs.pinecone_vector_db import PineconeVectorDB
+from modular_rag.pipelines import RetrievalPipeline
+from modular_rag.retrieval.retrievers import SemanticRetriever
 
 # Load environment variables
 from dotenv import load_dotenv

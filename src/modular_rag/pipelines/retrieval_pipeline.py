@@ -1,9 +1,9 @@
 from typing import List
-from common.rag_types.candidate import Candidate
-from ingestion.chunk_dbs import ChunkDB
-from retrieval.query_rewriters import QueryRewriter
-from retrieval.rerankers import Reranker
-from retrieval.retrievers import Retriever
+from modular_rag.common.rag_types.candidate import Candidate
+from modular_rag.ingestion.chunk_dbs import ChunkDB
+from modular_rag.retrieval.query_rewriters import QueryRewriter
+from modular_rag.retrieval.rerankers import Reranker
+from modular_rag.retrieval.retrievers import Retriever
 
 
 class RetrievalPipeline:

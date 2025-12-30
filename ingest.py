@@ -1,10 +1,10 @@
 # Ingestion Pipeline
-from pipelines import IngestionPipeline
-from ingestion.loader_chunkers import MultiModalLoaderChunker
-from ingestion.chunk_dbs import SQLiteChunkDB
-from common.embedders import OpenAIEmbedder
-from ingestion.vector_dbs import PineconeVectorDB
-from common.llms import ChatGPT
+from modular_rag.pipelines import IngestionPipeline
+from modular_rag.ingestion.loader_chunkers import MultiModalLoaderChunker
+from modular_rag.ingestion.chunk_dbs import SQLiteChunkDB
+from modular_rag.common.embedders import OpenAIEmbedder
+from modular_rag.ingestion.vector_dbs import PineconeVectorDB
+from modular_rag.common.llms import ChatGPT
 from openai import OpenAI
 from pinecone import Pinecone
 
@@ -36,4 +36,4 @@ vector_db = PineconeVectorDB(pc, "test-index", dimension=dim)
 ingestion_pipeline = IngestionPipeline(loader_chunker, chunk_db, embedder, vector_db)
 
 # Ingest data
-ingestion_pipeline.ingest("../documents/")
+ingestion_pipeline.ingest("documents")

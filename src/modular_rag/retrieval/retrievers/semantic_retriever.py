@@ -1,8 +1,8 @@
 from typing import List
-from common.rag_types import Candidate
+from modular_rag.common.rag_types import Candidate
 from .retriever import Retriever, rrf
-from ingestion.vector_dbs import VectorDB
-from common.embedders import Embedder
+from modular_rag.ingestion.vector_dbs import VectorDB
+from modular_rag.common.embedders import Embedder
 from concurrent.futures import ThreadPoolExecutor
 import itertools
 

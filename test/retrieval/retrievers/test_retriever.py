@@ -1,8 +1,8 @@
 from typing import List
 import unittest
 
-from common.rag_types import Candidate
-from retrieval.retrievers import rrf
+from modular_rag.common.rag_types import Candidate
+from modular_rag.retrieval.retrievers import rrf
 
 class TestRRF(unittest.TestCase):
   def test_rrf_ranks_in_expected_order(self):

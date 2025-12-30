@@ -1,7 +1,7 @@
 from typing import List
 from .vector_db import VectorDB
 from pinecone import Pinecone, QueryResponse, ServerlessSpec, Vector
-from common.rag_types import Candidate
+from modular_rag.common.rag_types import Candidate
 
 class PineconeVectorDB(VectorDB):
   def __init__(self, pc: Pinecone, index_name: str, dimension: int, cloud: str = "aws", region: str = "us-east-1"):

@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from common.llms.chat_gpt import ChatGPT
+from modular_rag.common.llms.chat_gpt import ChatGPT
 
 class TestChatGPT(unittest.TestCase):
     def setUp(self):

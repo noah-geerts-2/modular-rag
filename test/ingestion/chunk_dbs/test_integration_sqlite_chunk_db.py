@@ -2,8 +2,8 @@ import unittest
 import os
 import sqlite3
 from typing import List
-from ingestion.chunk_dbs.sqlite_chunk_db import SQLiteChunkDB
-from common.rag_types import Chunk
+from modular_rag.ingestion.chunk_dbs.sqlite_chunk_db import SQLiteChunkDB
+from modular_rag.common.rag_types import Chunk
 
 SQLITE_DB_NAME = 'test_chunks.db'
 SQLITE_TABLE_NAME = 'chunks'

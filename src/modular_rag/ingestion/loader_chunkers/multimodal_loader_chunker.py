@@ -5,8 +5,8 @@ from unstructured.partition.auto import partition
 from unstructured.chunking.title import chunk_by_title
 from pathlib import Path
 from .loader_chunker import LoaderChunker
-from common.rag_types import Chunk, Content
-from common.llms import LLM
+from modular_rag.common.rag_types import Chunk, Content
+from modular_rag.common.llms import LLM
 
 class MultiModalLoaderChunker(LoaderChunker):
 
@@ -29,7 +29,7 @@ class MultiModalLoaderChunker(LoaderChunker):
         tables_text += f"Table {i+1}:\n{table}\n\n"
     
     # Build the text prompt
-    prompt_text = f"""You are creating a searchable description for document content retrieval.
+    prompt_text = f"""You are creating a searchable description for document content modular_rag.retrieval.
 
     CONTENT TO ANALYZE:
     TEXT CONTENT:

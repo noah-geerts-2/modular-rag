@@ -1,7 +1,7 @@
 import unittest
 import os
 import dotenv
-from ingestion.vector_dbs.pinecone_vector_db import PineconeVectorDB
+from modular_rag.ingestion.vector_dbs.pinecone_vector_db import PineconeVectorDB
 from pinecone import Pinecone
 
 dotenv.load_dotenv()

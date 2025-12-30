@@ -1,6 +1,6 @@
 from .chunk_db import ChunkDB
 from typing import List
-from common.rag_types import Chunk
+from modular_rag.common.rag_types import Chunk
 import sqlite3
 import json
 

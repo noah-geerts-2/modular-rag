@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List, Set
-from common.rag_types import Chunk
+from modular_rag.common.rag_types import Chunk
 
 class LoaderChunker(ABC):
   @property

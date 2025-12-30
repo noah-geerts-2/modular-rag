@@ -1,11 +1,11 @@
 from typing import List
 import unittest
-from common.embedders.openai_embedder import OpenAIEmbedder
+from modular_rag.common.embedders.openai_embedder import OpenAIEmbedder
 import dotenv
 import os
 from openai import OpenAI
 
-from common.rag_types import Chunk
+from modular_rag.common.rag_types import Chunk
 
 dotenv.load_dotenv()
 

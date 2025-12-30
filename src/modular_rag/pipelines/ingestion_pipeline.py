@@ -1,9 +1,9 @@
 from typing import List
-from common.rag_types.chunk import Chunk
-from ingestion.chunk_dbs import ChunkDB
-from common.embedders import Embedder
-from ingestion.loader_chunkers import LoaderChunker
-from ingestion.vector_dbs import VectorDB
+from modular_rag.common.rag_types.chunk import Chunk
+from modular_rag.ingestion.chunk_dbs import ChunkDB
+from modular_rag.common.embedders import Embedder
+from modular_rag.ingestion.loader_chunkers import LoaderChunker
+from modular_rag.ingestion.vector_dbs import VectorDB
 
 
 class IngestionPipeline:

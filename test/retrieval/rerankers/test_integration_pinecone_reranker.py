@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 
 from pinecone import Pinecone
-from retrieval.rerankers import PineconeReranker
+from modular_rag.retrieval.rerankers import PineconeReranker
 
 load_dotenv()
 
