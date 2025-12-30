@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock, patch, call
 
-from .semantic_retriever import SemanticRetriever
+from retrieval.retrievers import SemanticRetriever
 
 
 class TestSemanticRetriever(unittest.TestCase):

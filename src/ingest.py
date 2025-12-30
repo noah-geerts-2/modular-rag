@@ -1,5 +1,5 @@
 # Ingestion Pipeline
-from pipelines.ingestion_pipeline import IngestionPipeline
+from pipelines import IngestionPipeline
 from ingestion.loader_chunkers import MultiModalLoaderChunker
 from ingestion.chunk_dbs import SQLiteChunkDB
 from common.embedders import OpenAIEmbedder

@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
 
-from retrieval.query_rewriters.multi_query_rewriter import MultiQueryRewriter
+from retrieval.query_rewriters import MultiQueryRewriter
 
 
 class TestMultiQueryRewriter(unittest.TestCase):

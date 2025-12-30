@@ -17,5 +17,5 @@ class IngestionPipeline:
   def ingest(self, path: str):
     chunks: List[Chunk] = self.loaderChunker.load_and_chunk(path)
     ids = self.ChunkDB.store_chunks(chunks)
-    vectors = self.embedder.embed_strings(chunk['search_text'] for chunk in chunks)
+    vectors = self.embedder.embed_strings([chunk['search_text'] for chunk in chunks])
     self.VectorDB.store_embeddings(ids, vectors)

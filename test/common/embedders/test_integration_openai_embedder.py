@@ -1,6 +1,6 @@
 from typing import List
 import unittest
-from .openai_embedder import OpenAIEmbedder
+from common.embedders.openai_embedder import OpenAIEmbedder
 import dotenv
 import os
 from openai import OpenAI
@@ -21,7 +21,7 @@ class TestIntegrationOpenAIEmbedder(unittest.TestCase):
 
   def test_embedding_3_strings(self):
     # Arrange
-    toEmbed: List[Chunk] = ["a", "b", "c"]
+    toEmbed: List[str] = ["a", "b", "c"]
 
     # Act & Assert
     vectors = self.embedder.embed_strings(toEmbed)

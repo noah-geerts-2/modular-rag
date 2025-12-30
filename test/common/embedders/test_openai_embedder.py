@@ -1,5 +1,5 @@
 import unittest
-from .openai_embedder import OpenAIEmbedder
+from common.embedders.openai_embedder import OpenAIEmbedder
 from unittest.mock import Mock, patch, MagicMock
 
 class TestOpenAIEmbedder(unittest.TestCase):

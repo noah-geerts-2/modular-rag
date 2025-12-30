@@ -2,7 +2,7 @@ import unittest
 import os
 import sqlite3
 from typing import List
-from .sqlite_chunk_db import SQLiteChunkDB
+from ingestion.chunk_dbs.sqlite_chunk_db import SQLiteChunkDB
 from common.rag_types import Chunk
 
 SQLITE_DB_NAME = 'test_chunks.db'
